@@ -1,0 +1,88 @@
+/* ==== ESTILOS GENERALES ==== */
+body {
+    background-color: #fff8e1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: #5c3d17; /* Marrón oscuro */
+    font-weight: bold;
+}
+
+/* Contenedor general */
+.container {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    margin-top: 30px;
+}
+
+/* ==== BOTONES ==== */
+.btn-primary {
+    background-color: #15803d; /* Verde monte */
+    border-color: #15803d;
+    color: white;
+}
+
+.btn-success {
+    background-color: #f9b300; /* Amarillo intenso */
+    border-color: #f9b300;
+    color: #000;
+}
+
+.btn-danger {
+    background-color: #c92f2f; /* Rojo del logo */
+    border-color: #c92f2f;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    border-color: #bbb;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+/* ==== TABLAS ==== */
+.table th,
+.table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* ==== ESTADOS ==== */
+.badge.bg-success {
+    background-color: #15803d !important; /* Verde monte */
+}
+
+.badge.bg-danger {
+    background-color: #c92f2f !important;
+}
+
+/* ==== PLATILLOS ==== */
+
+.badge.bg-success {
+    background-color: #15803d !important; /* Verde monte para disponibilidad */
+}
+
+.badge.bg-danger {
+    background-color: #c92f2f !important; /* Rojo para no disponible */
+}
+
+.table td, .table th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+form textarea {
+    resize: none;
+}
+
+.form-check-label {
+    font-weight: 500;
+}

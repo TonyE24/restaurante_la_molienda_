@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${platillo.id != null} ? 'Editar Platillo' : 'Nuevo Platillo'">Formulario de Platillo</title>
+
+    <!-- Google Fonts + Bootstrap + Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+    
+        h2 {
+            font-weight: 600;
+            color: #15803d;
+        }
+    
+        .card-form {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            padding: 2rem 3rem;
+        }
+    
+        .form-label {
+            font-weight: 500;
+            color: #5c3d17;
+        }
+    
+        .form-control, .form-select {
+            border-radius: 0.5rem;
+            padding: 0.6rem 1rem;
+        }
+    
+        .btn i {
+            margin-right: 5px;
+        }
+    
+        .btn-success {
+            background-color: #15803d;
+            border-color: #15803d;
+        }
+    
+        .btn-success:hover {
+            background-color: #136634;
+        }
+    
+        .btn-secondary {
+            background-color: #ccc;
+            color: #000;
+        }
+    
+        .btn-secondary:hover {
+            background-color: #bbb;
+        }
+    </style>
+    
+</head>
+<body>
+
+<div th:fragment="contenido" class="container px-4 pt-4">
+    <h2 class="mb-4 text-center" th:text="${platillo.id != null} ? 'Editar Platillo' : 'Nuevo Platillo'"></h2>
+
+    <div class="card-form mx-auto" style="max-width: 700px;">
+        <form th:action="@{/platillos/guardar}" th:object="${platillo}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+
+            <div class="mb-3">
+                <label class="form-label">Nombre del Platillo</label>
+                <input type="text" th:field="*{nombre}" class="form-control" placeholder="Ej: Pupusas de Queso" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Descripción</label>
+                <textarea th:field="*{descripcion}" class="form-control" rows="3" placeholder="Describe brevemente el platillo..."></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Precio ($)</label>
+                <input type="number" step="0.01" th:field="*{precio}" class="form-control" placeholder="Ej: 2.50" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Categoría</label>
+                <select th:field="*{categoria}" class="form-select" required>
+                    <option value="" disabled>Seleccione una categoría</option>
+                    <option th:value="DESAYUNO">Desayuno</option>
+                    <option th:value="ALMUERZO">Almuerzo</option>
+                    <option th:value="CENA">Cena</option>
+                    <option th:value="BEBIDA">Bebida</option>
+                    <option th:value="POSTRE">Postre</option>
+                </select>
+            </div>
+
+            <div class="form-check mb-4">
+                <input type="checkbox" th:field="*{disponible}" class="form-check-input" id="disponibleCheck">
+                <label class="form-check-label" for="disponibleCheck">Disponible en el menú</label>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <a th:href="@{/platillos}" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Cancelar
+                </a>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-check-circle"></i> Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
